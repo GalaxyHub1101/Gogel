@@ -112,5 +112,1457 @@
    });
   </script>
 
+  
+
+Show more
+
+
+Conversation with Gemini
+I have changed my mind. Can you make video players(for github) for files i have uploaded ,as i've got the videos i want small enough and can you make 5 video player all on top of each other with a button to download thev video on the right side of the video players.
+
+
+
+HTML
+
+ <!DOCTYPE html>
+ <html>
+ <head>
+  <title>Stacked Video Players with Download Buttons (GitHub Pages)</title>
+  <style>
+  body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 20px;
+  background-color: #f4f4f4;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+
+  .video-container-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  width: 80%;
+  max-width: 700px;
+  }
+
+  video {
+  width: 75%; /* Adjust video width to accommodate button */
+  height: auto;
+  border-radius: 8px 0 0 8px; /* Rounded left corners */
+  box-sizing: border-box;
+  display: block;
+  }
+
+  .download-button-container {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 10px; /* Add some spacing */
+  }
+
+  .download-button {
+  background-color: #28a745; /* Green download button */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  }
+
+  .download-button:hover {
+  background-color: #1e7e34;
+  }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
+ </head>
+ <body>
+
+  <div class="video-container-wrapper">
+   <video controls>
+    <source src="video1.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+   </video>
+   <div class="download-button-container">
+    <a href="video1.mp4" class="download-button" download="video1.mp4">Download</a>
+   </div>
+  </div>
+
+  <div class="video-container-wrapper">
+   <video controls>
+    <source src="video2.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+   </video>
+   <div class="download-button-container">
+    <a href="video2.mp4" class="download-button" download="video2.mp4">Download</a>
+   </div>
+  </div>
+
+  <div class="video-container-wrapper">
+   <video controls>
+    <source src="video3.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+   </video>
+   <div class="download-button-container">
+    <a href="video3.mp4" class="download-button" download="video3.mp4">Download</a>
+   </div>
+  </div>
+
+  <div class="video-container-wrapper">
+   <video controls>
+    <source src="video4.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+   </video>
+   <div class="download-button-container">
+    <a href="video4.mp4" class="download-button" download="video4.mp4">Download</a>
+   </div>
+  </div>
+
+  <div class="video-container-wrapper">
+   <video controls>
+    <source src="video5.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+   </video>
+   <div class="download-button-container">
+    <a href="video5.mp4" class="download-button" download="video5.mp4">Download</a>
+   </div>
+  </div>
+
+ </body>
+ </html>
+Explanation of Changes:
+
+.video-container-wrapper:
+
+A new div with this class now wraps each video player and its download button.
+display: flex; and align-items: center; are used to arrange the video player and the button side-by-side.
+width and max-width are maintained for responsiveness.
+margin-bottom keeps the spacing between each video player.
+video Width:
+
+The width of the video element is now set to 75% to make space for the download button on the right.
+border-radius is adjusted to only round the left corners.
+.download-button-container:
+
+This div holds the download button.
+width: 25%; gives it a quarter of the wrapper's width.
+display: flex;, justify-content: center;, and align-items: center; center the button within its container.
+padding-right: 10px; adds a little space between the video and the button.
+.download-button:
+
+Styles the download button with a green background, white text, padding, rounded corners, etc.
+The <a> tag with the class download-button is used to create the clickable download.
+href="videoX.mp4": This attribute should point to the actual path of your uploaded video file in your GitHub repository. Make sure these paths are correct. If your videos are in a subfolder, you'll need to adjust the href accordingly (e.g., href="videos/video1.mp4").
+download="videoX.mp4": This attribute tells the browser to download the linked file instead of navigating to it. The value you provide here will be the default filename for the downloaded video.
+How to Use for GitHub Pages:
+
+Save the code: Save this code as an HTML file (e.g., downloadable_videos.html) in your GitHub repository.
+Upload your video files: Make sure your video files (video1.mp4, video2.mp4, video3.mp4, video4.mp4, video5.mp4) are uploaded to your GitHub repository in a location that matches the paths in the href attribute of the download buttons (e.g., the root directory or a subdirectory like videos/).
+Access your GitHub Pages site: You can view this page at https://yourusername.github.io/yourrepositoryname/downloadable_videos.html (adjust the URL based on your username, repository name, and the HTML file name).
+Now you will have five video players stacked on top of each other, and each one will have a download button on its right side that allows users to download the corresponding video file. Remember to replace the placeholder video filenames in the <source src> and <a href> attributes with the actual names of your uploaded video files.
+
+
+
+
+
+I tried uploading the files ,but didn't work ,so I tried the other code you gave me ,but it wont work.
+
+
+I understand you're having trouble getting the video players with download buttons working on your GitHub Pages site. Let's troubleshoot this step by step. To help me understand what's going wrong, could you please provide me with the following information?
+
+For the "didn't work" part (uploading files):
+
+How did you try to upload the video files to your GitHub repository? (e.g., through the GitHub website interface by clicking "Add file" -> "Upload files", using Git commands in your terminal, a desktop Git client like GitHub Desktop).
+Where in your repository did you upload the video files? (e.g., directly in the root directory, in a specific subfolder like videos/, assets/).
+What are the exact filenames of your video files? (e.g., my_video_1.mp4, short_film.mov).
+Did you receive any error messages during the upload process? If so, what did they say?
+For the "other code" not working part (the code with embedded YouTube/Vimeo links):
+
+Did you replace the placeholder URLs ([LINK 1 URL], etc.) with actual YouTube or Vimeo video URLs? Please provide an example of one of the <a> tags you are using.
+Are the YouTube/Vimeo videos themselves working when you try to watch them directly on their respective platforms?
+Are you seeing any error messages on your GitHub Pages site where the videos should be? (e.g., a broken embed, a "video not found" message).
+Can you share the exact HTML code you are currently using for the video players with the links below? This will help me identify any potential syntax errors or incorrect paths.
+Once I have this information, I can give you more specific guidance on how to fix the issues. In the meantime, here are some general things to double-check:
+
+General Troubleshooting for GitHub Pages and Video Embedding:
+
+Case Sensitivity: Remember that filenames and paths on many web servers (including GitHub Pages) are case-sensitive. Make sure the case in your HTML code (src attributes for videos, href for downloads) exactly matches the case of your actual files and folder names on GitHub.
+Correct Paths: Double-check the relative paths in your HTML. If your HTML file and video files are in the same directory, you would use just the filename (e.g., src="myvideo.mp4"). If the video is in a subdirectory (e.g., an "assets" folder), you would use the path like src="assets/myvideo.mp4". For the download links, the href attribute needs to point to the correct location of the video file in your repository.
+Commit and Push: After making any changes to your HTML file or uploading new video files, make sure you commit those changes to your local Git repository and then push them to your remote GitHub repository. GitHub Pages will only update your website after it detects changes in your repository.
+GitHub Pages Build Time: After you push changes, it can take a few minutes for GitHub Pages to rebuild and deploy your site. Be patient and try refreshing your website after a short while. You can check the "Actions" tab of your repository on GitHub to see the status of any GitHub Pages build workflows.
+Looking forward to your details so I can help you get this working!
+
+
+
+
+
+Because this doesn't work can you give me another form of entertainment?
+
+
+Absolutely! Since we've hit a snag with the GitHub video players right now, let's switch gears and dive into some other forms of entertainment. Depending on what you're in the mood for, here are a few ideas:
+
+For something engaging and interactive:
+
+Try a quick online game: There are tons of free and fun browser-based games out there. You could check out:
+
+Puzzle games: Sudoku, online jigsaw puzzles, logic puzzles.
+Arcade classics: Pac-Man, Tetris (many free versions available).
+Word games: Online Scrabble, Wordle (if you haven't already!), crosswords.
+Just search for "free online games" and see what catches your eye!
+Explore interactive stories or quizzes: Websites like Sporcle have a huge variety of quizzes on all sorts of topics. Platforms like Choice of Games offer text-based interactive fiction where your decisions shape the story.
+
+For something visual and passive:
+
+Watch some interesting short videos: YouTube is a treasure trove of content. You could explore:
+
+Educational channels: Kurzgesagt – In a Nutshell, SmarterEveryDay, Veritasium.
+Funny skits or animations: Look up some popular creators or compilations.
+Nature documentaries or travel vlogs: Immerse yourself in something new.
+Look at some captivating photography or art: Websites like Unsplash, Pexels, or even Instagram (following accounts you enjoy) can offer a feast for the eyes.
+
+For something creative:
+
+Try a digital coloring app: There are many free apps available on your phone or tablet that can be quite relaxing.
+Do a quick sketch or doodle: Even if you don't consider yourself artistic, it can be a fun way to pass the time.
+For something auditory:
+
+Listen to a podcast: There are podcasts on virtually any topic you can imagine, from true crime to comedy to science fiction.
+Put on some music: Discover a new genre or revisit some old favorites.
+Given your previous interest in video, perhaps exploring some entertaining video content online would be a good start?
+
+What kind of entertainment sounds appealing to you right now? Knowing your preference might help me suggest something even more tailored!
+
+
+
+
+
+Can you add all those ideas together to work with github with the name Flixer.
+
+
+I understand you'd like to create a project called "Flixer" that combines various forms of entertainment and hosts it on GitHub. While I can't build a fully interactive application or website for you within GitHub, I can explain how you could potentially structure a GitHub Pages site to showcase different entertainment options, keeping in mind that the level of interactivity will be limited.
+
+Here's a concept of how you could approach this, focusing on linking to external resources:
+
+Project Structure:
+
+Create a GitHub repository named "Flixer".
+Set up GitHub Pages for this repository. This will allow you to host a static website.
+Create an index.html file as the main page.
+index.html Content:
+
+Navigation: Design a simple navigation menu to categorize the different entertainment types: "Games," "Videos," "Art/Photos," "Audio," etc.
+Games Section:
+You can't host playable games directly on GitHub Pages. GitHub Pages is for static content, and most games require server-side logic.
+Instead, you would link to external websites where users can play games. You could categorize games (puzzle, arcade, etc.) and provide links with descriptions.
+Videos Section:
+Embed videos from platforms like YouTube or Vimeo using their embed codes ( <iframe> tags). You can organize videos by category or create playlists.
+Art/Photos Section:
+Display images hosted in your GitHub repository or link to external art websites. You could create galleries or slideshows using HTML, CSS, and potentially some JavaScript for basic interactivity.
+Audio Section:
+Embed audio players (using <audio> tags) if you have audio files in your repository. You could also link to podcast websites or music streaming services.
+Interactive Elements (Limited):
+GitHub Pages can handle basic HTML, CSS, and JavaScript. You could use JavaScript for simple interactive elements like image carousels, expanding text sections, or basic quizzes. However, anything requiring server-side processing (like saving game scores or complex user interactions) won't work directly on GitHub Pages.
+Example HTML Snippets:
+
+HTML
+
+ <!DOCTYPE html>
+ <html>
+ <head>
+  <title>Flixer - Your Entertainment Hub</title>
+ </head>
+ <body>
+  <nav>
+   <a href="#games">Games</a> |
+   <a href="#videos">Videos</a> |
+   <a href="#art">Art/Photos</a> |
+   <a href="#audio">Audio</a>
+  </nav>
+
+  <section id="games">
+   <h2>Games</h2>
+   <p>Explore these fun games hosted on external sites:</p>
+   <ul>
+    <li><a href="[GAME URL 1]">Puzzle Game 1</a></li>
+    <li><a href="[GAME URL 2]">Arcade Game 2</a></li>
+   </ul>
+  </section>
+
+  <section id="videos">
+   <h2>Videos</h2>
+   <iframe width="560" height="315" src="[YOUTUBE EMBED URL]" frameborder="0" allowfullscreen></iframe>
+  </section>
+
+  <section id="art">
+   <h2>Art/Photos</h2>
+   <img src="[IMAGE URL]" alt="Image Description">
+  </section>
+
+  <section id="audio">
+   <h2>Audio</h2>
+   <audio controls>
+    <source src="[AUDIO FILE URL]" type="audio/mpeg">
+    Your browser does not support the audio element.
+   </audio>
+  </section>
+ </body>
+ </html>
+Remember to replace the bracketed placeholders ([GAME URL 1], [YOUTUBE EMBED URL], etc.) with actual URLs and file paths.
+Limitations:
+
+No Server-Side Code: GitHub Pages is designed for static websites. You can't run server-side code (like PHP, Python, Node.js) directly on it. This means you can't have databases, user logins, or complex interactive features that require a server.
+External Links: For many entertainment types (especially games), you'll primarily be linking to external websites.
+In summary, "Flixer" on GitHub Pages could be a well-organized collection of links and embedded content, but it won't be a fully self-contained interactive entertainment platform. You'll need to rely on external services for the actual functionality of games, videos, etc. If you want a more interactive experience, you'd need to explore web hosting options that support server-side code.
+
+
+
+
+
+Can you make this look better by using Monteratt as the font, make a navagation bar and underline text.
+
+
+HTML
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flixer - Your Entertainment Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
+  <style>
+  body {
+   font-family: 'Montserrat', sans-serif;
+   margin: 0;
+   background-color: #f8f8f8;
+   color: #333;
+   line-height: 1.6;
+  }
+
+  nav {
+   background-color: #333;
+   color: white;
+   padding: 1em;
+   text-align: center;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  nav a {
+   color: white;
+   text-decoration: none;
+   padding: 0.8em 1.5em;
+   margin: 0 0.5em;
+   border-radius: 5px;
+   transition: background-color 0.3s ease;
+  }
+
+  nav a:hover {
+   background-color: #555;
+  }
+
+  section {
+   padding: 2em;
+   max-width: 800px;
+   margin: 20px auto;
+   background-color: white;
+   border-radius: 8px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+   color: #007bff;
+   border-bottom: 2px solid #007bff;
+   padding-bottom: 0.5em;
+   margin-bottom: 1em;
+  }
+
+  p {
+   margin-bottom: 1em;
+  }
+
+  ul {
+   list-style: none;
+   padding: 0;
+  }
+
+  ul li {
+   margin-bottom: 0.5em;
+  }
+
+  ul li a {
+   color: #007bff;
+   text-decoration: underline; /* Underline the links in the list */
+  }
+
+  ul li a:hover {
+   color: #0056b3;
+  }
+
+  iframe {
+   width: 100%;
+   max-width: 560px;
+   height: auto;
+   aspect-ratio: 16 / 9; /* Maintain aspect ratio */
+   border: 0;
+   margin-bottom: 1em;
+  }
+
+  img {
+   display: block;
+   max-width: 100%;
+   height: auto;
+   border-radius: 5px;
+   margin-bottom: 1em;
+  }
+
+  audio {
+   display: block;
+   width: 100%;
+   max-width: 400px;
+   margin-bottom: 1em;
+  }
+  </style>
+ </head>
+ <body>
+
+  <nav>
+   <a href="#games">Games</a>
+   <a href="#videos">Videos</a>
+   <a href="#art">Art/Photos</a>
+   <a href="#audio">Audio</a>
+  </nav>
+
+  <section id="games">
+   <h2><ins>Games</ins></h2>
+   <p>Explore these fun games hosted on external sites:</p>
+   <ul>
+    <li><a href="[GAME URL 1]">Puzzle Game 1</a></li>
+    <li><a href="[GAME URL 2]">Arcade Game 2</a></li>
+   </ul>
+  </section>
+
+  <section id="videos">
+   <h2><ins>Videos</ins></h2>
+   <iframe src="[YOUTUBE EMBED URL]" frameborder="0" allowfullscreen></iframe>
+  </section>
+
+  <section id="art">
+   <h2><ins>Art/Photos</ins></h2>
+   <img src="[IMAGE URL]" alt="Image Description">
+  </section>
+
+  <section id="audio">
+   <h2><ins>Audio</ins></h2>
+   <audio controls>
+    <source src="[AUDIO FILE URL]" type="audio/mpeg">
+    Your browser does not support the audio element.
+   </audio>
+  </section>
+
+ </body>
+ </html>
+Key Changes:
+
+Font:
+
+The <link> tag in the <head> imports the Montserrat font from Google Fonts.
+The body style in the <style> section sets font-family: 'Montserrat', sans-serif; to apply this font to the entire page.
+Navigation Bar:
+
+A <nav> element is added at the top of the <body>.
+Basic styling is applied to the nav for a dark background, centered text, and padding.
+Links within the navigation use <a> tags and are styled with white text, no underline by default, padding, margins, and a hover effect.
+Underline Text:
+
+The headings (<h2>) for each section are now wrapped with the <ins> tag. The <ins> tag is typically used to indicate inserted text and browsers usually render it with an underline by default.
+The links within the unordered lists in the content sections are styled with text-decoration: underline; to ensure they are underlined.
+Now, the "Flixer" page will use the Montserrat font for all its text, have a navigation bar at the top to easily jump between sections, and the links within the content lists will be underlined for better visual distinction. The headings of each section are also underlined.
+
+
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Googel</title>
+
+<link rel="icon" type="image/x-icon" href="W.png">
+
+<style>
+
+body {
+
+background-color: #ADD8E6; /* Light blue */
+
+font-family: 'Montserrat', sans-serif;
+
+margin: 0;
+
+padding: 0;
+
+display: flex;
+
+flex-direction: column;
+
+align-items: center;
+
+box-sizing: border-box;
+
+}
+
+
+
+nav {
+
+background-color: white;
+
+width: 100%;
+
+padding: 15px 20px;
+
+display: flex;
+
+justify-content: space-between;
+
+align-items: center;
+
+box-sizing: border-box;
+
+}
+
+
+
+nav .left-section {
+
+display: flex;
+
+align-items: center;
+
+}
+
+
+
+nav .left-section img {
+
+height: 30px; /* Adjust as needed */
+
+margin-right: 15px;
+
+}
+
+
+
+nav .right-section {
+
+display: flex;
+
+gap: 20px;
+
+}
+
+
+
+nav .right-section a {
+
+text-decoration: none;
+
+color: black; /* Adjust link color */
+
+}
+
+
+
+.search-container {
+
+margin-top: 50px;
+
+padding: 30px;
+
+background-color: white;
+
+border-radius: 8px;
+
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+text-align: center;
+
+}
+
+
+
+#search-input {
+
+padding: 12px 20px;
+
+border: 1px solid #ccc;
+
+border-radius: 25px;
+
+width: 400px; /* Adjust as needed */
+
+font-family: 'Montserrat', sans-serif;
+
+font-size: 16px;
+
+box-sizing: border-box;
+
+margin-bottom: 20px;
+
+}
+
+
+
+button {
+
+padding: 12px 25px;
+
+background-color: #007bff; /* Example button color */
+
+color: white;
+
+border: none;
+
+border-radius: 25px;
+
+font-family: 'Montserrat', sans-serif;
+
+font-size: 16px;
+
+cursor: pointer;
+
+transition: background-color 0.3s ease;
+
+}
+
+
+
+button:hover {
+
+background-color: #0056b3;
+
+}
+
+
+
+/* Ensure Montserrat font is loaded */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+
+</style>
+
+</head>
+
+<body>
+
+
+
+<nav>
+
+<div class="left-section">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<img src="Logo.png" alt="Logo">
+
+</div>
+
+</nav>
+
+
+
+<nav>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<div class="right-section">
+
+<a href="watchy.html">Watchy</a>
+
+<a herf="contact.html">Contact</a>
+
+<a herf="Shortcuts.html">Shortcuts</a>
+
+</div>
+
+</nav>
+
+
+
+<div class="search-container">
+
+<h1>Webby</h1>
+
+<input type="text" id="search-input" placeholder="Search the web...">
+
+<button onclick="performSearch()">Search</button>
+
+</div>
+
+
+
+<script>
+
+function performSearch() {
+
+const searchTerm = document.getElementById('search-input').value.trim();
+
+
+
+if (searchTerm) {
+
+if (searchTerm.endsWith('.com') || searchTerm.endsWith('.co.uk')) {
+
+let url = searchTerm;
+
+if (!url.startsWith('http://') && !url.startsWith('https://')) {
+
+url = 'http://' + url;
+
+}
+
+window.location.href = url;
+
+} else {
+
+window.location.href = 'https://www.google.com/search?q=' + encodeURIComponent(searchTerm);
+
+}
+
+} else {
+
+alert('Please enter a search term.');
+
+}
+
+}
+
+
+
+document.getElementById('search-input').addEventListener('keypress', function(event) {
+
+if (event.key === 'Enter') {
+
+performSearch();
+
+}
+
+});
+
+</script>
+
+
+
+</body>
+
+</html> How can you change this code to use Monsteratt as the font.
+
+
+
+You've already done a great job including the link to Montserrat in your <head> and setting it as the font-family for the body and the input elements!
+
+The reason you might not be seeing Montserrat applied to the navigation links ("Watchy", "Contact", "Shortcuts") is that you haven't explicitly set the font-family for those specific elements (nav .right-section a).
+
+Here's the updated CSS with Montserrat applied to the navigation links:
+
+CSS
+
+        body {
+            background-color: #ADD8E6; /* Light blue */
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        nav {
+            background-color: white;
+            width: 100%;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        nav .left-section {
+            display: flex;
+            align-items: center;
+        }
+
+        nav .left-section img {
+            height: 30px; /* Adjust as needed */
+            margin-right: 15px;
+        }
+
+        nav .right-section {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav .right-section a {
+            text-decoration: none;
+            color: black; /* Adjust link color */
+            font-family: 'Montserrat', sans-serif; /* Apply Montserrat to navigation links */
+        }
+
+        .search-container {
+            margin-top: 50px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #search-input {
+            padding: 12px 20px;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            width: 400px; /* Adjust as needed */
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 12px 25px;
+            background-color: #007bff; /* Example button color */
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Ensure Montserrat font is loaded */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+    </style>
+The only change I've made is adding font-family: 'Montserrat', sans-serif; to the nav .right-section a rule.
+
+With this addition, the "Watchy", "Contact", and "Shortcuts" links in your navigation bar should now also be rendered using the Montserrat font.
+
+
+
+
+
+Can you add the rest of the code to the updated code..
+
+
+HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Googel</title>
+    <link rel="icon" type="image/x-icon" href="W.png">
+    <style>
+        body {
+            background-color: #ADD8E6; /* Light blue */
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        nav {
+            background-color: white;
+            width: 100%;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        nav .left-section {
+            display: flex;
+            align-items: center;
+        }
+
+        nav .left-section img {
+            height: 30px; /* Adjust as needed */
+            margin-right: 15px;
+        }
+
+        nav .right-section {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav .right-section a {
+            text-decoration: none;
+            color: black; /* Adjust link color */
+            font-family: 'Montserrat', sans-serif; /* Apply Montserrat to navigation links */
+        }
+
+        .search-container {
+            margin-top: 50px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #search-input {
+            padding: 12px 20px;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            width: 400px; /* Adjust as needed */
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 12px 25px;
+            background-color: #007bff; /* Example button color */
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Ensure Montserrat font is loaded */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="left-section">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <img src="Logo.png" alt="Logo">
+        </div>
+    </nav>
+
+    <nav>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <div class="right-section">
+            <a href="watchy.html">Watchy</a>
+            <a href="contact.html">Contact</a>
+            <a href="Shortcuts.html">Shortcuts</a>
+        </div>
+    </nav>
+
+    <div class="search-container">
+        <h1>Webby</h1>
+        <input type="text" id="search-input" placeholder="Search the web...">
+        <button onclick="performSearch()">Search</button>
+    </div>
+
+    <script>
+        function performSearch() {
+            const searchTerm = document.getElementById('search-input').value.trim();
+
+            if (searchTerm) {
+                if (searchTerm.endsWith('.com') || searchTerm.endsWith('.co.uk')) {
+                    let url = searchTerm;
+                    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                        url = 'http://' + url;
+                    }
+                    window.location.href = url;
+                } else {
+                    window.location.href = 'https://www.google.com/search?q=' + encodeURIComponent(searchTerm);
+                }
+            } else {
+                alert('Please enter a search term.');
+            }
+        }
+
+        document.getElementById('search-input').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                performSearch();
+            }
+        });
+    </script>
+
+</body>
+</html>
+This is the complete code with the Montserrat font applied to the navigation links. The rest of your original HTML structure and JavaScript logic for the search functionality are included.
+
+
+
+
+
+It's still not working.
+
+
+Okay, I understand it's still not working for you. That's frustrating! Let's try a more targeted approach to ensure the Montserrat font is definitely being applied to those navigation links.
+
+Please replace the entire <style> block in your code with the following:
+
+HTML
+
+    <style>
+        body {
+            background-color: #ADD8E6; /* Light blue */
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        nav {
+            background-color: white;
+            width: 100%;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        nav .left-section {
+            display: flex;
+            align-items: center;
+        }
+
+        nav .left-section img {
+            height: 30px; /* Adjust as needed */
+            margin-right: 15px;
+        }
+
+        nav .right-section {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav .right-section a {
+            text-decoration: none;
+            color: black; /* Adjust link color */
+            font-family: 'Montserrat', sans-serif !important; /* Important! */
+        }
+
+        .search-container {
+            margin-top: 50px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #search-input {
+            padding: 12px 20px;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            width: 400px; /* Adjust as needed */
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 12px 25px;
+            background-color: #007bff; /* Example button color */
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Ensure Montserrat font is loaded */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+    </style>
+The key change here is the addition of !important to the font-family rule for the navigation links:
+
+CSS
+
+nav .right-section a {
+    text-decoration: none;
+    color: black; /* Adjust link color */
+    font-family: 'Montserrat', sans-serif !important; /* Important! */
+}
+The !important keyword is a CSS declaration that overrides any other declarations for the same property, regardless of specificity. This will force the browser to apply the Montserrat font to those links, unless there's some other very specific CSS rule that is also using !important and has a higher specificity (which is unlikely in this case).
+
+After making this change, please:
+
+Save the updated HTML file.
+Refresh the page in your web browser.
+Check if the font of "Watchy", "Contact", and "Shortcuts" has changed to Montserrat.
+If it's still not working after this, there might be another issue at play. Could you possibly:
+
+Check your browser's developer tools (usually by pressing F12) and go to the "Elements" tab. Find one of the navigation links ("Watchy", for example), and in the "Styles" panel on the right, see what font is being applied to it. This can help identify if there's another CSS rule overriding your Montserrat setting.
+Ensure that your browser is actually loading the Montserrat font from Google Fonts. In the "Network" tab of the developer tools, you should see a request for the CSS file from fonts.googleapis.com. If it's failing (e.g., showing a red error), then the font isn't being loaded at all.
+Let me know if this updated code with !important works, or if you find any clues in the browser's developer tools!
+
+
+
+
+
+It still doesn't work.
+
+
+Okay, this is persistent! Let's dig deeper using the browser's developer tools. This will give us a clearer picture of what's happening with the font.
+
+Please follow these steps carefully:
+
+Open your HTML file in your web browser.
+
+Open the Browser's Developer Tools:
+
+Chrome/Edge/Brave: Press the F12 key (or right-click on the page and select "Inspect" or "Inspect Element").
+Firefox: Press the F12 key (or right-click on the page and select "Inspect Element").
+Safari: If you don't see the "Develop" menu, go to Safari > Preferences > Advanced and check "Show Develop menu in menu bar". Then, right-click on the page and select "Inspect Element".
+Navigate to the "Elements" or "Inspector" Tab: This tab shows the HTML structure of your page.
+
+Locate one of the Navigation Links: Use the "element picker" tool (usually an arrow icon in the top-left of the developer tools panel) to click on one of your navigation links ("Watchy", "Contact", or "Shortcuts") in the browser window. This will highlight the corresponding <a> element in the "Elements" tab.
+
+Examine the "Styles" or "Computed" Tab:
+
+"Styles" (or "Elements" -> "Styles" in older versions): This tab shows all the CSS rules that are being applied to the selected element, in order of specificity. Look for the nav .right-section a rule. You should see font-family: 'Montserrat', sans-serif !important; listed. Check if there are any other font-family rules that are appearing after this one and might be overriding it (even without !important, a more specific rule could take precedence).
+"Computed": This tab shows the final, computed styles that the browser is actually using for the selected element. Search for the font-family property here. What font is listed as being used?
+Check the "Network" Tab:
+
+Go to the "Network" tab in the developer tools.
+Reload the page (Ctrl + R or Cmd + R).
+Look for a request in the list that includes fonts.googleapis.com.
+Status Code: What is the status code for this request?
+200 OK: The font CSS file was loaded successfully.
+Other status codes (like 404 Not Found) indicate an issue loading the font.
+Content Type: If the status is 200 OK, what is the "Content-Type" of the response? It should be text/css.
+Please tell me what you find in the "Styles" and "Computed" tabs regarding the font-family for the navigation links, and what the status of the fonts.googleapis.com request is in the "Network" tab.
+
+This detailed information from your browser will be crucial in pinpointing why the Montserrat font isn't being applied. There might be a typo in the font name, an issue with how the CSS is being applied, or the font itself might not be loading correctly.
+
+
+
+
+
+I'm using a tablet and I'm going to go make a new project.
+
+
+Okay, I understand. Sometimes starting fresh can help clear up any lingering issues.
+
+When you create your new project on your tablet, please be very careful with the following:
+
+Typos: Double-check the spelling of Montserrat in your CSS (font-family: 'Montserrat', sans-serif;). Font names are case-sensitive.
+Font Loading: Ensure the <link> tag to Google Fonts is correctly placed within the <head> section of your HTML.
+CSS Specificity: In your CSS, make sure the rule targeting the navigation links (nav .right-section a) is not being overridden by another rule with higher specificity. If you're unsure, you can still try adding !important to the font-family rule for testing purposes, although it's generally better to manage specificity properly.
+File Paths: If you link to any other files (like your "W.png" or "Logo.png"), ensure the paths are correct relative to your HTML file's location in your new project.
+If you encounter the same issue with the font in your new project, please let me know the exact HTML and CSS you're using, and I'll do my best to help you troubleshoot it. Good luck with your new project!
+
+
+
+
+
+Can you make a navigation bar that makes a pop out menu if on mobile and a normal one if on desktop.
+
+
+Okay, let's create a navigation bar that adapts its appearance based on the screen size, providing a "pop-out" (often called a hamburger menu or off-canvas menu) experience on mobile and a standard horizontal menu on desktop.
+
+Here's the HTML and CSS structure to achieve this:
+
+HTML
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Navigation Bar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
+  <style>
+  body {
+   font-family: 'Montserrat', sans-serif;
+   margin: 0;
+   background-color: #f4f4f4;
+   color: #333;
+  }
+
+  nav {
+   background-color: #333;
+   color: white;
+   padding: 1em;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+  }
+
+  .logo {
+   font-size: 1.5em;
+   font-weight: bold;
+  }
+
+  .menu-toggle {
+   display: none; /* Hidden by default on desktop */
+   cursor: pointer;
+   font-size: 1.5em;
+  }
+
+  .bar {
+   width: 25px;
+   height: 3px;
+   background-color: white;
+   margin: 5px 0;
+   display: block;
+  }
+
+  .nav-links {
+   display: flex;
+   list-style: none;
+   margin: 0;
+   padding: 0;
+  }
+
+  .nav-links li {
+   margin-left: 1.5em;
+  }
+
+  .nav-links a {
+   color: white;
+   text-decoration: none;
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+   .menu-toggle {
+    display: block; /* Show hamburger icon on mobile */
+   }
+
+   .nav-links {
+    display: none; /* Hide links by default on mobile */
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* Adjust based on nav height */
+    left: 0;
+    background-color: #333;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10; /* Ensure it's on top */
+   }
+
+   .nav-links.active {
+    display: flex; /* Show links when active class is added */
+   }
+
+   .nav-links li {
+    margin: 1em 0;
+   }
+  }
+  </style>
+ </head>
+ <body>
+
+  <nav>
+   <div class="logo">Flixer</div>
+   <div class="menu-toggle">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+   </div>
+   <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Movies</a></li>
+    <li><a href="#">TV Shows</a></li>
+    <li><a href="#">Genres</a></li>
+    <li><a href="#">Account</a></li>
+   </ul>
+  </nav>
+
+  <script>
+   const menuToggle = document.querySelector('.menu-toggle');
+   const navLinks = document.querySelector('.nav-links');
+
+   menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+   });
+  </script>
+
+ </body>
+ </html>
+Explanation:
+
+HTML Structure:
+
+<nav>: The main navigation container.
+.logo: For your website name ("Flixer").
+.menu-toggle: This div will act as the hamburger icon on mobile. It contains three <span> elements (.bar) to create the lines.
+.nav-links: An unordered list (<ul>) containing the navigation links (<li> and <a>).
+CSS Styling:
+
+Desktop Styles (Default):
+The .menu-toggle is hidden using display: none;.
+The .nav-links are displayed as a horizontal flex container (display: flex;).
+Basic styling for the navigation bar, logo, and links is provided.
+Mobile Styles (@media (max-width: 768px)):
+This media query applies styles when the screen width is 768 pixels or less (typical for tablets and phones).
+.menu-toggle is set to display: block;, making the hamburger icon visible.
+.nav-links are initially hidden using display: none; and then styled to appear as a vertical column positioned below the navigation bar (position: absolute, top, left, width: 100%).
+The .nav-links.active class is used to make the mobile menu visible by setting display: flex;. This class will be toggled using JavaScript.
+JavaScript:
+
+The JavaScript code selects the .menu-toggle and .nav-links elements.
+An event listener is added to the .menu-toggle so that when it's clicked:
+The active class is toggled on the .nav-links element. This will show or hide the mobile menu based on its current state.
+How it Works:
+
+Desktop: On wider screens, the .menu-toggle is hidden, and the .nav-links are displayed horizontally as a standard navigation menu.
+Mobile: On smaller screens, the .menu-toggle (hamburger icon) becomes visible. The .nav-links are initially hidden. When the user clicks the hamburger icon, the JavaScript adds the active class to .nav-links, causing it to appear as a vertical pop-out menu.
+To Use:
+
+Save this code as an HTML file (e.g., responsive_nav.html).
+Open it in your web browser and resize the browser window. You'll see the navigation change from a horizontal bar to a hamburger icon with a pop-out menu as the width decreases.
+You can further customize the styling (colors, fonts, animations, etc.) to match your desired look and feel. Remember to replace the # in the href attributes with your actual page links.
+
+
+
+
+
+
+Can you make a search bar that uses duck duck go, but if it has .com or .co.uk it will lead you to that website.
+
+
+HTML
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DuckDuckGo Search</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
+  <style>
+  body {
+   font-family: 'Montserrat', sans-serif;
+   margin: 20px;
+   background-color: #f4f4f4;
+   color: #333;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+  }
+
+  .search-container {
+   background-color: #fff;
+   padding: 20px;
+   border-radius: 8px;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+   text-align: center;
+   width: 80%;
+   max-width: 600px;
+  }
+
+  h1 {
+   color: #2c3e50;
+   margin-bottom: 20px;
+  }
+
+  #search-input {
+   padding: 12px 20px;
+   border: 1px solid #ccc;
+   border-radius: 25px;
+   width: 100%;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 16px;
+   box-sizing: border-box;
+   margin-bottom: 15px;
+  }
+
+  button {
+   padding: 12px 25px;
+   background-color: #38ada9; /* DuckDuckGo color */
+   color: white;
+   border: none;
+   border-radius: 25px;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 16px;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+   background-color: #2b8a84;
+  }
+  </style>
+ </head>
+ <body>
+
+  <div class="search-container">
+   <h1>Search with DuckDuckGo</h1>
+   <input type="text" id="search-input" placeholder="Enter your search term or website...">
+   <button onclick="performSearch()">Search</button>
+  </div>
+
+  <script>
+   function performSearch() {
+    const searchTerm = document.getElementById('search-input').value.trim();
+
+    if (searchTerm) {
+     if (searchTerm.endsWith('.com') || searchTerm.endsWith('.co.uk')) {
+      let url = searchTerm;
+      if (!url.startsWith('http://') && !url.startsWith('https://')) {
+       url = 'http://' + url;
+      }
+      window.location.href = url;
+     } else {
+      const duckduckgoUrl = 'https://duckduckgo.com/?q=' + encodeURIComponent(searchTerm);
+      window.location.href = duckduckgoUrl;
+     }
+    } else {
+     alert('Please enter a search term or website address.');
+    }
+   }
+
+   document.getElementById('search-input').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+     performSearch();
+    }
+   });
+  </script>
+
  </body>
  </html>
