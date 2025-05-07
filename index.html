@@ -1,12 +1,141 @@
 <!DOCTYPE html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<tittle> Gogel </tittle>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Googel</title>
+    <link rel="icon" type="image/x-icon" href="W.png">
+    <style>
+        body {
+            background-color: #ADD8E6; /* Light blue */
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+        }
 
-<nav>
-  <a href="index.html"> Search </a> |
-  <a herf="contact.html"> Contact </a> |
-  <a herf="shortcuts.html"> Shortcuts </a> |
-  <a herf="watchy.html"> Watchy </a>
-</nav>
+        nav {
+            background-color: white;
+            width: 100%;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
 
+        nav .left-section {
+            display: flex;
+            align-items: center;
+        }
+
+        nav .left-section img {
+            height: 30px; /* Adjust as needed */
+            margin-right: 15px;
+        }
+
+        nav .right-section {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav .right-section a {
+            text-decoration: none;
+            color: black; /* Adjust link color */
+        }
+
+        .search-container {
+            margin-top: 50px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #search-input {
+            padding: 12px 20px;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            width: 400px; /* Adjust as needed */
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 12px 25px;
+            background-color: #007bff; /* Example button color */
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Ensure Montserrat font is loaded */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="left-section">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <img src="Logo.png" alt="Logo">
+        </div>
+    </nav>
+
+    <nav>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <div class="right-section">
+            <a href="watchy.html">Watchy</a>
+            <a herf="contact.html">Contact</a>
+            <a herf="Shortcuts.html">Shortcuts</a>
+        </div>
+    </nav>
+
+    <div class="search-container">
+        <h1>Webby</h1>
+        <input type="text" id="search-input" placeholder="Search the web...">
+        <button onclick="performSearch()">Search</button>
+    </div>
+
+    <script>
+        function performSearch() {
+            const searchTerm = document.getElementById('search-input').value.trim();
+
+            if (searchTerm) {
+                if (searchTerm.endsWith('.com') || searchTerm.endsWith('.co.uk')) {
+                    let url = searchTerm;
+                    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                        url = 'http://' + url;
+                    }
+                    window.location.href = url;
+                } else {
+                    window.location.href = 'https://www.google.com/search?q=' + encodeURIComponent(searchTerm);
+                }
+            } else {
+                alert('Please enter a search term.');
+            }
+        }
+
+        document.getElementById('search-input').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                performSearch();
+            }
+        });
+    </script>
+
+</body>
 </html>
