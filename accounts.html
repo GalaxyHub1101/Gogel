@@ -3,7 +3,7 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gogel</title>
+  <title>Sign In / Sign Up</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
   <style>
   body {
@@ -11,15 +11,22 @@
    margin: 0;
    background-color: #f4f4f4;
    color: #333;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding-top: 20px;
   }
 
   nav {
    background-color: #333;
    color: white;
    padding: 1em;
+   width: 100%;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
    display: flex;
    justify-content: space-between;
    align-items: center;
+   box-sizing: border-box;
   }
 
   .logo {
@@ -27,25 +34,11 @@
    font-weight: bold;
   }
 
-  .menu-toggle {
-   display: none; /* Hidden by default on desktop */
-   cursor: pointer;
-   font-size: 1.5em;
-  }
-
-  .bar {
-   width: 25px;
-   height: 3px;
-   background-color: white;
-   margin: 5px 0;
-   display: block;
-  }
-
   .nav-links {
-   display: flex;
    list-style: none;
    margin: 0;
    padding: 0;
+   display: flex;
   }
 
   .nav-links li {
@@ -57,59 +50,154 @@
    text-decoration: none;
   }
 
-  /* Mobile Styles */
-  @media (max-width: 768px) {
-   .menu-toggle {
-    display: block; /* Show hamburger icon on mobile */
-   }
+  .container {
+   background-color: #fff;
+   padding: 30px;
+   border-radius: 8px;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+   width: 80%;
+   max-width: 400px;
+   margin-top: 20px;
+   text-align: center;
+  }
 
-   .nav-links {
-    display: none; /* Hide links by default on mobile */
-    flex-direction: column;
-    position: absolute;
-    top: 60px; /* Adjust based on nav height */
-    left: 0;
-    background-color: #333;
-    width: 100%;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 10; /* Ensure it's on top */
-   }
+  h2 {
+   color: #2c3e50;
+   margin-bottom: 20px;
+  }
 
-   .nav-links.active {
-    display: flex; /* Show links when active class is added */
-   }
+  .form-group {
+   margin-bottom: 15px;
+   text-align: left;
+  }
 
-   .nav-links li {
-    margin: 1em 0;
-   }
+  label {
+   display: block;
+   margin-bottom: 5px;
+   font-weight: bold;
+  }
+
+  input[type="email"],
+  input[type="password"] {
+   width: 100%;
+   padding: 10px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   box-sizing: border-box;
+   font-family: 'Montserrat', sans-serif;
+  }
+
+  button {
+   padding: 12px 25px;
+   background-color: #007bff;
+   color: white;
+   border: none;
+   border-radius: 25px;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 16px;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+   width: 100%;
+  }
+
+  button:hover {
+   background-color: #0056b3;
+  }
+
+  .google-btn {
+   background-color: #db4437; /* Google Red */
+  }
+
+  .google-btn:hover {
+   background-color: #c53929;
+  }
+
+  .switch-form {
+   margin-top: 15px;
+   font-size: 0.9em;
+  }
+
+  .switch-form a {
+   color: #007bff;
+   text-decoration: none;
+  }
+
+  .switch-form a:hover {
+   text-decoration: underline;
+  }
+
+  .hidden {
+   display: none;
   }
   </style>
  </head>
  <body>
 
   <nav>
-   <div class="logo">Gogel</div>
-   <div class="menu-toggle">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-   </div>
+   <div class="logo">Flixer</div>
    <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="shortcuts.html">Shortcuts</a></li>
-    <li><a href="chefgel.html">Chefgel</a></li>
-    <li><a href="accounts.html">Accounts</a></li>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Movies</a></li>
+    <li><a href="#">TV Shows</a></li>
+    <li><a href="#">Shortcuts</a></li>
    </ul>
   </nav>
 
-  <script>
-   const menuToggle = document.querySelector('.menu-toggle');
-   const navLinks = document.querySelector('.nav-links');
+  <div class="container" id="signin-container">
+   <h2>Sign In</h2>
+   <form id="signin-form">
+    <div class="form-group">
+     <label for="signin-email">Email:</label>
+     <input type="email" id="signin-email" name="signin-email" required>
+    </div>
+    <div class="form-group">
+     <label for="signin-password">Password:</label>
+     <input type="password" id="signin-password" name="signin-password" required>
+    </div>
+    <button type="submit">Sign In</button>
+    <button type="button" class="google-btn">Sign In with Google</button>
+   </form>
+   <p class="switch-form">Don't have an account? <a href="#" id="show-signup">Sign Up</a></p>
+  </div>
 
-   menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
+  <div class="container hidden" id="signup-container">
+   <h2>Sign Up</h2>
+   <form id="signup-form">
+    <div class="form-group">
+     <label for="signup-email">Email:</label>
+     <input type="email" id="signup-email" name="signup-email" required>
+    </div>
+    <div class="form-group">
+     <label for="signup-password">Password:</label>
+     <input type="password" id="signup-password" name="signup-password" required>
+    </div>
+    <button type="submit">Sign Up</button>
+    <button type="button" class="google-btn">Sign Up with Google</button>
+   </form>
+   <p class="switch-form">Already have an account? <a href="#" id="show-signin-from-signup">Sign In</a></p>
+  </div>
+
+  <script>
+   const signinContainer = document.getElementById('signin-container');
+   const signupContainer = document.getElementById('signup-container');
+   const showSignupLink = document.getElementById('show-signup');
+   const showSigninFromSignupLink = document.getElementById('show-signin-from-signup');
+
+   showSignupLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    signinContainer.classList.add('hidden');
+    signupContainer.classList.remove('hidden');
    });
+
+   showSigninFromSignupLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    signupContainer.classList.add('hidden');
+    signinContainer.classList.remove('hidden');
+   });
+
+   // **IMPORTANT:** The Google Sign-In buttons in this HTML are purely for UI.
+   // To actually implement Google Sign-In, you need to use the Google Sign-In
+   // JavaScript library and handle the authentication flow on a backend server.
   </script>
 
  </body>
