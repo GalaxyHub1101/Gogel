@@ -1,0 +1,23 @@
+.button-container {
+  display: flex; /* Use flexbox to arrange buttons in a row */
+  flex-wrap: wrap; /* Allow buttons to wrap to the next line if there isn't enough space */
+}
+
+.button {
+  display: inline-block; /* Allows setting width and height while staying in a line */
+  background-color: #000000; /* Example button color */
+  color: white;
+  padding: 7px 10px; /* Add some padding inside the button */
+  text-align: center;
+  text-decoration: none; /* Remove the default underline from links */
+  font-size: 12px;
+  border: none; /* Remove default button border */
+  border-radius: 5px; /* Add rounded corners */
+  cursor: pointer; /* Change cursor to a pointer on hover */
+  margin-right: 5px; /* Add some spacing between buttons horizontally */
+  margin-bottom: 5px; /* Add some spacing between buttons vertically if they wrap */
+}
+
+.button:hover {
+  background-color: #353534; /* Darken the button on hover */
+}
