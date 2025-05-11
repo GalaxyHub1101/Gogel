@@ -7,199 +7,262 @@
     <title>Gogel</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    body {
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
+        background-color: #f4f4f4;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh; /* Ensure body takes at least the full viewport height */
+    }
 
+    nav {
+        background-color: #333;
+        color: white;
+        padding: 1.5vw; /* Use viewport width for padding */
+        width: 100%;
+        box-shadow: 0 0.2vw 0.4vw rgba(0, 0, 0, 0.1); /* Scale shadows */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+        font-size: 16px; /* Base font size */
+    }
+
+    .logo {
+        font-size: 2vw; /* Scale logo font size */
+        font-weight: bold;
+    }
+
+    .nav-links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+
+    .nav-links li {
+        margin-left: 2vw; /* Scale link spacing */
+    }
+
+    .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.1vw; /* Scale link font size */
+    }
+
+    .search-container {
+        background-color: #fff;
+        padding: 3vw; /* Scale padding */
+        border-radius: 1vw; /* Scale border radius */
+        box-shadow: 0 0.2vw 0.5vw rgba(0, 0, 0, 0.1); /* Scale shadow */
+        text-align: center;
+        width: 90%; /* Use percentage for width */
+        max-width: 600px; /* Keep a maximum width on larger screens */
+        margin-top: 3vw; /* Scale top margin */
+    }
+
+    h1 {
+        color: #2c3e50;
+        margin-bottom: 2vw; /* Scale bottom margin */
+        font-size: 2.5vw; /* Scale heading font size */
+    }
+
+    #search-input {
+        padding: 1.5vw 2.5vw; /* Scale padding */
+        border: 0.1vw solid #ccc; /* Scale border */
+        border-radius: 2.5vw; /* Scale border radius */
+        width: 100%;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.2vw; /* Scale font size */
+        box-sizing: border-box;
+        margin-bottom: 1.8vw; /* Scale bottom margin */
+    }
+
+    button {
+        padding: 1.5vw 3vw; /* Scale padding */
+        background-color: #38ada9; /* DuckDuckGo color */
+        color: white;
+        border: none;
+        border-radius: 2.5vw; /* Scale border radius */
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.2vw; /* Scale font size */
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #2b8a84;
+    }
+
+    /* Recent Searches Styles */
+    #recent-searches-container {
+        background-color: #fff;
+        padding: 2vw; /* Scale padding */
+        border-radius: 1vw; /* Scale border radius */
+        box-shadow: 0 0.2vw 0.4vw rgba(0, 0, 0, 0.1); /* Scale shadow */
+        width: 90%; /* Use percentage for width */
+        max-width: 600px; /* Keep a maximum width */
+        margin-top: 2vw; /* Scale top margin */
+        text-align: left;
+        font-size: 16px; /* Base font size */
+    }
+
+    #recent-searches-container h2 {
+        color: #2c3e50;
+        margin-top: 0;
+        margin-bottom: 1.2vw; /* Scale bottom margin */
+        font-size: 1.5vw; /* Scale heading font size */
+    }
+
+    #recent-searches-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    #recent-searches-list li {
+        padding: 1vw 0; /* Scale padding */
+        border-bottom: 0.05vw solid #eee; /* Scale border */
+        font-size: 1.1vw; /* Scale font size */
+    }
+
+    #recent-searches-list li:last-child {
+        border-bottom: none;
+    }
+
+    #recent-searches-list li a {
+        text-decoration: none;
+        color: #337ab7;
+    }
+
+    #recent-searches-list li a:hover {
+        text-decoration: underline;
+    }
+
+    .clear-history-button {
+        background-color: #f44336;
+        color: white;
+        border: none;
+        border-radius: 0.5vw; /* Scale border radius */
+        padding: 0.8vw 1.5vw; /* Scale padding */
+        font-size: 1vw; /* Scale font size */
+        cursor: pointer;
+        margin-top: 1.2vw; /* Scale top margin */
+        transition: background-color 0.3s ease;
+    }
+
+    .clear-history-button:hover {
+        background-color: #d32f2f;
+    }
+
+    /* Mobile Menu Styles */
+    .menu-toggle {
+        display: none;
+        cursor: pointer;
+        font-size: 2vw; /* Scale icon size */
+    }
+
+    .bar {
+        width: 3vw; /* Scale bar width */
+        height: 0.4vw; /* Scale bar height */
+        background-color: white;
+        margin: 0.6vw 0; /* Scale margin */
+        display: block;
+    }
+
+    .nav-links.mobile-active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 6vw; /* Adjust based on nav height */
+        left: 0;
+        background-color: #333;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.2); /* Scale shadow */
+        z-index: 10;
+    }
+
+    .nav-links.mobile-active li {
+        margin: 1.5vw 0; /* Scale margin */
+    }
+
+    /* Media Query for Mobile */
+    @media (max-width: 768px) {
         nav {
-            background-color: #333;
-            color: white;
-            padding: 1em;
-            width: 100%;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-sizing: border-box;
+            padding: 3vw;
+            font-size: 18px; /* Adjust base font size for mobile */
         }
 
         .logo {
-            font-size: 1.5em;
-            font-weight: bold;
+            font-size: 4vw;
         }
 
         .nav-links {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-
-        .nav-links li {
-            margin-left: 1.5em;
+            display: none;
         }
 
         .nav-links a {
-            color: white;
-            text-decoration: none;
+            font-size: 3vw;
         }
 
-        .search-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 80%;
-            max-width: 600px;
-            margin-top: 20px; /* Add some space below the nav */
-        }
-
-        h1 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
-
-        #search-input {
-            padding: 12px 20px;
-            border: 1px solid #ccc;
-            border-radius: 25px;
-            width: 100%;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 16px;
-            box-sizing: border-box;
-            margin-bottom: 15px;
-        }
-
-        button {
-            padding: 12px 25px;
-            background-color: #38ada9; /* DuckDuckGo color */
-            color: white;
-            border: none;
-            border-radius: 25px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #2b8a84;
-        }
-
-        /* Mobile Menu Styles (Hidden by default) */
         .menu-toggle {
-            display: none;
-            cursor: pointer;
-            font-size: 1.5em;
-        }
-
-        .bar {
-            width: 25px;
-            height: 3px;
-            background-color: white;
-            margin: 5px 0;
             display: block;
         }
 
-        .nav-links.mobile-active {
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            top: 60px; /* Adjust based on nav height */
-            left: 0;
-            background-color: #333;
-            width: 100%;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 10;
+        .search-container {
+            padding: 5vw;
+            border-radius: 2vw;
+            margin-top: 5vw;
         }
 
-        .nav-links.mobile-active li {
-            margin: 1em 0;
+        h1 {
+            font-size: 5vw;
+            margin-bottom: 4vw;
         }
 
-        /* Recent Searches Styles */
+        #search-input {
+            padding: 3vw 5vw;
+            border-radius: 5vw;
+            font-size: 3.5vw;
+            margin-bottom: 3.5vw;
+        }
+
+        button {
+            padding: 3vw 6vw;
+            border-radius: 5vw;
+            font-size: 3.5vw;
+        }
+
         #recent-searches-container {
-            background-color: #fff;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: 80%;
-            max-width: 600px;
-            margin-top: 20px;
-            text-align: left;
+            padding: 4vw;
+            border-radius: 2vw;
+            margin-top: 4vw;
+            font-size: 18px; /* Adjust base font size for mobile */
         }
 
         #recent-searches-container h2 {
-            color: #2c3e50;
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 1.2em;
-        }
-
-        #recent-searches-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
+            font-size: 4vw;
+            margin-bottom: 2.5vw;
         }
 
         #recent-searches-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        #recent-searches-list li:last-child {
-            border-bottom: none;
-        }
-
-        #recent-searches-list li a {
-            text-decoration: none;
-            color: #337ab7;
-        }
-
-        #recent-searches-list li a:hover {
-            text-decoration: underline;
+            padding: 2vw 0;
+            font-size: 3vw;
+            border-bottom: 0.1vw solid #eee;
         }
 
         .clear-history-button {
-            background-color: #f44336;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 8px 15px;
-            font-size: 0.9em;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: background-color 0.3s ease;
+            border-radius: 1vw;
+            padding: 1.5vw 3vw;
+            font-size: 2.5vw;
+            margin-top: 2vw;
         }
-
-        .clear-history-button:hover {
-            background-color: #d32f2f;
-        }
-
-        /* Media Query for Mobile */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none; /* Hide on mobile by default */
-            }
-
-            .menu-toggle {
-                display: block; /* Show hamburger icon */
-            }
-
-            .search-container,
-            #recent-searches-container {
-                width: 95%;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
 
