@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="C.png">
+  <title>Quranel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    nav {
+      background-color: #333;
+      color: white;
+      padding: 1em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    .menu-toggle {
+      display: none; /* Hidden by default on desktop */
+      cursor: pointer;
+      font-size: 1.5em;
+    }
+
+    .bar {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 5px 0;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li {
+      margin-left: 1.5em;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block; /* Show hamburger icon on mobile */
+      }
+
+      .nav-links {
+        display: none; /* Hide links by default on mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Adjust based on nav height */
+        left: 0;
+        background-color: #333;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 10; /* Ensure it's on top */
+      }
+
+      .nav-links.active {
+        display: flex; /* Show links when active class is added */
+      }
+
+      .nav-links li {
+        margin: 1em 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Quranel</div>
+    <div class="menu-toggle">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="https://galaxyhub1101.github.io/Gogel/">Gogel</a></li>
+      <li><a href="https://galaxyhub1101.github.io/Gogel/chefgel.html">Chefgel</a></li>
+      <li><a href="https://Galaxyhub1101.github.io/Gogel/Quranel/PG-2.html">Quranel</a></li>
+      <li><a href="https://galaxyhub1101.github.io/Gogel/shortcuts.html">Shortcuts</a></li>
+    </ul>
+  </nav>
+
+  <img src="5.jpg" alt="Page 5" style="display: block; margin-left: auto; margin-right: auto;">
+
+<div class="button-container">
+  <a href="PG-2.html" class="button">2</a>
+  <a href="PG-3.html" class="button">3</a>
+  <a href="PG-4.html" class="button">4</a>
+  <a href="PG-5.html" class="button">5</a>
+  <a href="PG-6.html" class="button">6</a>
+  <a href="PG-7.html" class="button">7</a>
+  <a href="PG-8.html" class="button">8</a>
+  <a href="PG-9.html" class="button">9</a>
+  <a href="PG-10.html" class="button">10</a>
+  <a href="PG-11.html" class="button">11</a>
+  <a href="PG-12.html" class="button">12</a>
+  <a href="PG-13.html" class="button">13</a>
+  <a href="PG-14.html" class="button">14</a>
+  <a href="PG-15.html" class="button">15</a>
+  <a href="PG-16.html" class="button">16</a>
+  <a href="PG-17.html" class="button">17</a>
+  <a href="PG-18.html" class="button">18</a>
+  <a href="PG-19.html" class="button">19</a>
+  <a href="PG-20.html" class="button">20</a>
+  <a href="PG-21.html" class="button">21</a>
+  <a href="PG-22.html" class="button">22</a>
+  <a href="PG-23.html" class="button">23</a>
+  <a href="PG-24.html" class="button">24</a>
+  <a href="PG-25.html" class="button">25</a>
+  <a href="PG-26.html" class="button">26</a>
+  <a href="PG-27.html" class="button">27</a>
+  <a href="PG-28.html" class="button">28</a>
+  <a href="PG-29.html" class="button">29</a>
+  <a href="PG-30.html" class="button">30</a>
+  <a href="PG-31.html" class="button">31</a>
+</div>
+
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
