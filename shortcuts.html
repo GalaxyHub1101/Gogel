@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="G.png">
+    <link rel="icon" type="image/x-icon" href="S.png">
     <title>Gogel - Shortcuts</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
     <style>
@@ -86,28 +86,63 @@
             color: #007bff;
         }
 
-        .add-shortcut-section {
-            margin: 30px 20px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        .new-shortcut-button-container {
             text-align: center;
+            margin: 20px 0;
         }
 
-        .add-shortcut-section h2 {
+        #newShortcutButton {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #newShortcutButton:hover {
+            background-color: #0056b3;
+        }
+
+        .popup-overlay {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* Ensure it's on top */
+        }
+
+        .popup-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .popup-content h2 {
             color: #333;
             margin-bottom: 15px;
         }
 
-        .add-shortcut-form label {
+        .popup-form label {
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
+            text-align: left;
         }
 
-        .add-shortcut-form input[type="text"],
-        .add-shortcut-form button {
+        .popup-form input[type="text"] {
+            width: 100%;
             padding: 10px;
             margin-bottom: 10px;
             border: 1px solid #ddd;
@@ -116,15 +151,35 @@
             font-size: 1em;
         }
 
-        .add-shortcut-form button {
-            background-color: #007bff;
+        .popup-form button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #28a745; /* Green for submit */
             color: white;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            margin-top: 10px;
         }
 
-        .add-shortcut-form button:hover {
-            background-color: #0056b3;
+        .popup-form button:hover {
+            background-color: #1e7e34;
+        }
+
+        .popup-close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5em;
+            color: #aaa;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        .popup-close-button:hover {
+            color: #333;
         }
 
         .delete-button {
@@ -141,24 +196,24 @@
         /* Mobile Styles */
         @media (max-width: 768px) {
             .menu-toggle {
-                display: block; /* Show hamburger icon on mobile */
+                display: block;
             }
 
             .nav-links {
-                display: none; /* Hide links by default on mobile */
+                display: none;
                 flex-direction: column;
                 position: absolute;
-                top: 60px; /* Adjust based on nav height */
+                top: 60px;
                 left: 0;
                 background-color: #333;
                 width: 100%;
                 text-align: center;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                z-index: 10; /* Ensure it's on top */
+                z-index: 10;
             }
 
             .nav-links.active {
-                display: flex; /* Show links when active class is added */
+                display: flex;
             }
 
             .nav-links li {
@@ -170,8 +225,9 @@
                 grid-template-columns: 1fr;
             }
 
-            .add-shortcut-section {
-                margin: 30px 20px;
+            .popup-content {
+                width: 95%;
+                max-width: none;
             }
         }
     </style>
@@ -192,29 +248,37 @@
         </ul>
     </nav>
 
-    <h1>My Favorite Shortcuts</h1>
+    <div class="new-shortcut-button-container">
+        <button id="newShortcutButton">New Shortcut</button>
+    </div>
+
+    <div class="popup-overlay" id="addShortcutPopup">
+        <div class="popup-content">
+            <button class="popup-close-button" id="closePopup">&times;</button>
+            <h2>Add New Shortcut</h2>
+            <form id="addShortcutForm" class="popup-form">
+                <label for="popupWebsiteName">Website Name:</label>
+                <input type="text" id="popupWebsiteName" name="popupWebsiteName" required>
+
+                <label for="popupWebsiteURL">Website URL:</label>
+                <input type="text" id="popupWebsiteURL" name="popupWebsiteURL" required placeholder="https://example.com">
+
+                <button type="submit">Add</button>
+            </form>
+        </div>
+    </div>
 
     <div class="shortcuts-container" id="shortcuts">
         </div>
 
-    <div class="add-shortcut-section">
-        <h2>Add New Shortcut</h2>
-        <form id="addShortcutForm" class="add-shortcut-form">
-            <label for="websiteName">Website Name:</label>
-            <input type="text" id="websiteName" name="websiteName" required>
-
-            <label for="websiteURL">Website URL:</label>
-            <input type="text" id="websiteURL" name="websiteURL" required placeholder="https://example.com">
-
-            <button type="submit">Add Shortcut</button>
-        </form>
-    </div>
-
     <script>
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
-        const shortcutsContainer = document.getElementById('shortcuts');
+        const newShortcutButton = document.getElementById('newShortcutButton');
+        const addShortcutPopup = document.getElementById('addShortcutPopup');
+        const closePopup = document.getElementById('closePopup');
         const addShortcutForm = document.getElementById('addShortcutForm');
+        const shortcutsContainer = document.getElementById('shortcuts');
 
         let shortcuts = JSON.parse(localStorage.getItem('myShortcuts')) || [];
 
@@ -255,10 +319,18 @@
             navLinks.classList.toggle('active');
         });
 
+        newShortcutButton.addEventListener('click', () => {
+            addShortcutPopup.style.display = 'flex';
+        });
+
+        closePopup.addEventListener('click', () => {
+            addShortcutPopup.style.display = 'none';
+        });
+
         addShortcutForm.addEventListener('submit', function(event) {
             event.preventDefault();
-            const websiteNameInput = document.getElementById('websiteName');
-            const websiteURLInput = document.getElementById('websiteURL');
+            const websiteNameInput = document.getElementById('popupWebsiteName');
+            const websiteURLInput = document.getElementById('popupWebsiteURL');
             const name = websiteNameInput.value.trim();
             const url = websiteURLInput.value.trim();
 
@@ -266,6 +338,7 @@
                 addShortcut(name, url);
                 websiteNameInput.value = '';
                 websiteURLInput.value = '';
+                addShortcutPopup.style.display = 'none';
             } else {
                 alert('Please enter both the website name and URL.');
             }
