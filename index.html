@@ -6,7 +6,264 @@
     <link rel="icon" type="image/x-icon" href="G.png">
     <title>Gogel</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
-    
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            font-size: 16px; /* Base font size */
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 1em 1.5em;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 1.5em;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            width: 90%;
+            max-width: 600px;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .search-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 2em;
+        }
+
+        #search-input {
+            padding: 12px 20px;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            width: calc(100% - 40px); /* Adjust for padding */
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1em;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+
+        button {
+            padding: 12px 25px;
+            background-color: #38ada9;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #recent-searches-container {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        #recent-searches-container h2 {
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        #recent-searches-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #recent-searches-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9em;
+        }
+
+        #recent-searches-list li:last-child {
+            border-bottom: none;
+        }
+
+        #recent-searches-list li a {
+            text-decoration: none;
+            color: #337ab7;
+        }
+
+        #recent-searches-list li a:hover {
+            text-decoration: underline;
+        }
+
+        .clear-history-button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 15px;
+            font-size: 0.8em;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .clear-history-button:hover {
+            background-color: #d32f2f;
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5em;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+            display: block;
+        }
+
+        .nav-links.mobile-active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background-color: #333;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+
+        .nav-links.mobile-active li {
+            margin: 1em 0;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 18px; /* Increased base font size for mobile */
+            }
+
+            nav {
+                padding: 1.5em 2em;
+            }
+
+            .logo {
+                font-size: 2em;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            main {
+                margin-top: 30px;
+            }
+
+            .search-container {
+                padding: 30px;
+                border-radius: 10px;
+                margin-bottom: 25px;
+            }
+
+            h1 {
+                font-size: 2.5em;
+                margin-bottom: 20px;
+            }
+
+            #search-input {
+                padding: 15px 25px;
+                border-radius: 30px;
+                font-size: 1.1em;
+                margin-bottom: 20px;
+            }
+
+            button {
+                padding: 15px 30px;
+                border-radius: 30px;
+                font-size: 1.1em;
+            }
+
+            #recent-searches-container {
+                padding: 20px;
+                border-radius: 10px;
+                margin-top: 25px;
+            }
+
+            #recent-searches-container h2 {
+                font-size: 1.4em;
+                margin-bottom: 15px;
+            }
+
+            #recent-searches-list li {
+                padding: 10px 0;
+                font-size: 1em;
+                border-bottom: 1px solid #eee;
+            }
+
+            .clear-history-button {
+                border-radius: 6px;
+                padding: 10px 20px;
+                font-size: 0.9em;
+                margin-top: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -25,208 +282,9 @@
                 <li><a href="https://Galaxyhub1101.github.io/Gogel/Quranel/PG-2.html">Quranel</a></li>
             </ul>
         </nav>
-        <style>
-    body {
-        font-family: 'Montserrat', sans-serif;
-        margin: 0;
-        background-color: #f4f4f4;
-        color: #333;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        min-height: 100vh;
-        font-size: 16px; /* Base font size for larger screens */
-    }
-
-    nav {
-        background-color: #333;
-        color: white;
-        padding: 1em 1.5em; /* Use em for more consistent scaling with font size */
-        width: 100%;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-sizing: border-box;
-    }
-
-    .logo {
-        font-size: 1.5em;
-        font-weight: bold;
-    }
-
-    .nav-links {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-    }
-
-    .nav-links li {
-        margin-left: 1.5em;
-    }
-
-    .nav-links a {
-        color: white;
-        text-decoration: none;
-    }
-
-    .search-container {
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        width: 90%; /* Percentage for responsiveness */
-        max-width: 600px; /* Limit width on large screens */
-        margin-top: 20px;
-    }
-
-    h1 {
-        color: #2c3e50;
-        margin-bottom: 20px;
-        font-size: 2em;
-    }
-
-    #search-input {
-        padding: 12px 20px;
-        border: 1px solid #ccc;
-        border-radius: 25px;
-        width: 100%;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 1em;
-        box-sizing: border-box;
-        margin-bottom: 15px;
-    }
-
-    button {
-        padding: 12px 25px;
-        background-color: #38ada9; /* DuckDuckGo color */
-        color: white;
-        border: none;
-        border-radius: 25px;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 1em;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-        background-color: #2b8a84;
-    }
-
-    /* Recent Searches Styles */
-    #recent-searches-container {
-        background-color: #fff;
-        padding: 15px;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        width: 90%; /* Percentage for responsiveness */
-        max-width: 600px; /* Limit width on large screens */
-        margin-top: 20px;
-        text-align: left;
-    }
-
-    #recent-searches-container h2 {
-        color: #2c3e50;
-        margin-top: 0;
-        margin-bottom: 10px;
-        font-size: 1.2em;
-    }
-
-    #recent-searches-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    #recent-searches-list li {
-        padding: 8px 0;
-        border-bottom: 1px solid #eee;
-        font-size: 0.9em;
-    }
-
-    #recent-searches-list li:last-child {
-        border-bottom: none;
-    }
-
-    #recent-searches-list li a {
-        text-decoration: none;
-        color: #337ab7;
-    }
-
-    #recent-searches-list li a:hover {
-        text-decoration: underline;
-    }
-
-    .clear-history-button {
-        background-color: #f44336;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        padding: 8px 15px;
-        font-size: 0.8em;
-        cursor: pointer;
-        margin-top: 10px;
-        transition: background-color 0.3s ease;
-    }
-
-    .clear-history-button:hover {
-        background-color: #d32f2f;
-    }
-
-    /* Mobile Menu Styles */
-    .menu-toggle {
-        display: none;
-        cursor: pointer;
-        font-size: 1.5em;
-    }
-
-    .bar {
-        width: 25px;
-        height: 3px;
-        background-color: white;
-        margin: 5px 0;
-        display: block;
-    }
-
-    .nav-links.mobile-active {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        background-color: #333;
-        width: 100%;
-        text-align: center;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        z-index: 10;
-    }
-
-    .nav-links.mobile-active li {
-        margin: 1em 0;
-    }
-
-    /* Media Query for Mobile */
-    @media (max-width: 768px) {
-        body {
-            font-size: 18px; /* Increase base font size for mobile */
-        }
-
-        nav {
-            padding: 1.5em 2em;
-        }
-
-        .logo {
-            font-size: 2em;
-        }
-
-        .nav-links a {
-            font-size: 1.2em;
-        }
     </header>
 
-   <main>
+    <main>
         <section class="search-container">
             <h1>Search</h1>
             <input type="text" id="search-input" placeholder="Enter your search term or website...">
@@ -240,6 +298,7 @@
             <button class="clear-history-button">Clear History</button>
         </section>
     </main>
+
     <footer>
         </footer>
 
@@ -248,6 +307,8 @@
         const recentSearchesContainer = document.getElementById('recent-searches-container');
         const recentSearchesList = document.getElementById('recent-searches-list');
         const clearHistoryButton = document.querySelector('.clear-history-button');
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
 
         let recentSearches = localStorage.getItem('recentSearches');
         recentSearches = recentSearches ? JSON.parse(recentSearches) : [];
@@ -272,7 +333,7 @@
         function updateRecentSearches(searchTerm) {
             if (!recentSearches.includes(searchTerm)) {
                 recentSearches.unshift(searchTerm);
-                if (recentSearches.length > 5) { // Limit to 5 recent searches
+                if (recentSearches.length > 5) {
                     recentSearches.pop();
                 }
                 localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
@@ -312,17 +373,12 @@
             displayRecentSearches();
         });
 
-        // JavaScript for Mobile Menu Toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('mobile-active');
             const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
             menuToggle.setAttribute('aria-expanded', !expanded);
         });
 
-        // Initial display of recent searches
         displayRecentSearches();
     </script>
 
