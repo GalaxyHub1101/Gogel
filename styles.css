@@ -1,0 +1,193 @@
+/* styles.css */
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  background-color: #f4f4f4;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+nav {
+  background-color: #333;
+  color: white;
+  padding: 1em;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 1.5em;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.search-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 80%;
+  max-width: 600px;
+  margin-top: 20px; /* Add some space below the nav */
+}
+
+h1 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+#search-input {
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+button {
+  padding: 12px 25px;
+  background-color: #38ada9; /* DuckDuckGo color */
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2b8a84;
+}
+
+/* Mobile Menu Styles (Hidden by default) */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 1.5em;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 5px 0;
+  display: block;
+}
+
+.nav-links.mobile-active {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 60px; /* Adjust based on nav height */
+  left: 0;
+  background-color: #333;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.nav-links.mobile-active li {
+  margin: 1em 0;
+}
+
+/* Recent Searches Styles */
+#recent-searches-container {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 600px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+#recent-searches-container h2 {
+  color: #2c3e50;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+#recent-searches-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#recent-searches-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+#recent-searches-list li:last-child {
+  border-bottom: none;
+}
+
+#recent-searches-list li a {
+  text-decoration: none;
+  color: #337ab7;
+}
+
+#recent-searches-list li a:hover {
+  text-decoration: underline;
+}
+
+.clear-history-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  font-size: 0.9em;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.clear-history-button:hover {
+  background-color: #d32f2f;
+}
+
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Hide on mobile by default */
+  }
+
+  .menu-toggle {
+    display: block; /* Show hamburger icon */
+  }
+
+  .search-container,
+  #recent-searches-container {
+    width: 95%;
+  }
+}
