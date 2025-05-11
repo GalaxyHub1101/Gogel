@@ -19,20 +19,26 @@
             font-size: 16px; /* Base font size */
         }
 
-        nav {
-            background-color: #333;
-            color: white;
-            padding: 1em 1.5em;
+        header {
             width: 100%;
+            background-color: #333;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            color: white;
+            padding: 1.5em 2em; /* Larger padding */
             display: flex;
             justify-content: space-between;
             align-items: center;
             box-sizing: border-box;
+            font-size: 18px; /* Larger base font in nav */
+            max-width: 1200px; /* Limit width on very large screens */
+            margin: 0 auto; /* Center nav on large screens */
         }
 
         .logo {
-            font-size: 1.5em;
+            font-size: 1.7em; /* Slightly larger logo */
             font-weight: bold;
         }
 
@@ -44,18 +50,20 @@
         }
 
         .nav-links li {
-            margin-left: 1.5em;
+            margin-left: 2em; /* More spacing between links */
         }
 
         .nav-links a {
             color: white;
             text-decoration: none;
+            font-size: 1.2em; /* Larger link font */
+            padding: 0.5em 0;
         }
 
         main {
             width: 90%;
             max-width: 600px;
-            margin-top: 20px;
+            margin-top: 30px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -63,58 +71,58 @@
 
         .search-container {
             background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
+            padding: 25px;
+            border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             text-align: center;
             width: 100%;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         h1 {
             color: #2c3e50;
-            margin-bottom: 15px;
-            font-size: 2em;
+            margin-bottom: 20px;
+            font-size: 2.2em;
         }
 
         #search-input {
-            padding: 12px 20px;
+            padding: 15px 25px;
             border: 1px solid #ccc;
-            border-radius: 25px;
-            width: calc(100% - 40px); /* Adjust for padding */
+            border-radius: 30px;
+            width: calc(100% - 50px);
             font-family: 'Montserrat', sans-serif;
-            font-size: 1em;
+            font-size: 1.1em;
             box-sizing: border-box;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         button {
-            padding: 12px 25px;
+            padding: 15px 30px;
             background-color: #38ada9;
             color: white;
             border: none;
-            border-radius: 25px;
+            border-radius: 30px;
             font-family: 'Montserrat', sans-serif;
-            font-size: 1em;
+            font-size: 1.1em;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
 
         #recent-searches-container {
             background-color: #fff;
-            padding: 15px;
-            border-radius: 8px;
+            padding: 20px;
+            border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             width: 100%;
             text-align: left;
-            margin-top: 20px;
+            margin-top: 25px;
         }
 
         #recent-searches-container h2 {
             color: #2c3e50;
             margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 1.2em;
+            margin-bottom: 15px;
+            font-size: 1.4em;
         }
 
         #recent-searches-list {
@@ -124,9 +132,9 @@
         }
 
         #recent-searches-list li {
-            padding: 8px 0;
+            padding: 10px 0;
             border-bottom: 1px solid #eee;
-            font-size: 0.9em;
+            font-size: 1em;
         }
 
         #recent-searches-list li:last-child {
@@ -146,11 +154,11 @@
             background-color: #f44336;
             color: white;
             border: none;
-            border-radius: 5px;
-            padding: 8px 15px;
-            font-size: 0.8em;
+            border-radius: 6px;
+            padding: 10px 20px;
+            font-size: 0.9em;
             cursor: pointer;
-            margin-top: 10px;
+            margin-top: 15px;
             transition: background-color 0.3s ease;
         }
 
@@ -162,14 +170,14 @@
         .menu-toggle {
             display: none;
             cursor: pointer;
-            font-size: 1.5em;
+            font-size: 2em; /* Larger mobile menu icon */
         }
 
         .bar {
-            width: 25px;
-            height: 3px;
+            width: 30px;
+            height: 4px;
             background-color: white;
-            margin: 5px 0;
+            margin: 6px 0;
             display: block;
         }
 
@@ -177,7 +185,7 @@
             display: flex;
             flex-direction: column;
             position: absolute;
-            top: 60px;
+            top: 75px; /* Adjusted for larger nav */
             left: 0;
             background-color: #333;
             width: 100%;
@@ -187,7 +195,12 @@
         }
 
         .nav-links.mobile-active li {
-            margin: 1em 0;
+            margin: 1.2em 0; /* More spacing in mobile menu */
+        }
+
+        .nav-links.mobile-active a {
+            font-size: 1.4em; /* Larger links in mobile menu */
+            padding: 0.7em 0;
         }
 
         @media (max-width: 768px) {
@@ -195,12 +208,20 @@
                 font-size: 18px; /* Increased base font size for mobile */
             }
 
+            header {
+                position: fixed; /* Keep header at the top on scroll */
+                top: 0;
+                left: 0;
+                z-index: 100; /* Ensure it's above other content */
+            }
+
             nav {
                 padding: 1.5em 2em;
+                font-size: 20px;
             }
 
             .logo {
-                font-size: 2em;
+                font-size: 2.2em;
             }
 
             .nav-links {
@@ -212,55 +233,54 @@
             }
 
             main {
-                margin-top: 30px;
+                margin-top: 110px; /* Adjust top margin to account for fixed header */
             }
 
             .search-container {
                 padding: 30px;
                 border-radius: 10px;
-                margin-bottom: 25px;
+                margin-bottom: 30px;
             }
 
             h1 {
-                font-size: 2.5em;
-                margin-bottom: 20px;
+                font-size: 2.7em;
+                margin-bottom: 25px;
             }
 
             #search-input {
-                padding: 15px 25px;
-                border-radius: 30px;
-                font-size: 1.1em;
-                margin-bottom: 20px;
+                padding: 18px 30px;
+                border-radius: 35px;
+                font-size: 1.2em;
+                margin-bottom: 25px;
             }
 
             button {
-                padding: 15px 30px;
-                border-radius: 30px;
-                font-size: 1.1em;
+                padding: 18px 35px;
+                border-radius: 35px;
+                font-size: 1.2em;
             }
 
             #recent-searches-container {
-                padding: 20px;
+                padding: 25px;
                 border-radius: 10px;
-                margin-top: 25px;
+                margin-top: 30px;
             }
 
             #recent-searches-container h2 {
-                font-size: 1.4em;
-                margin-bottom: 15px;
+                font-size: 1.6em;
+                margin-bottom: 18px;
             }
 
             #recent-searches-list li {
-                padding: 10px 0;
-                font-size: 1em;
-                border-bottom: 1px solid #eee;
+                padding: 12px 0;
+                font-size: 1.1em;
             }
 
             .clear-history-button {
-                border-radius: 6px;
-                padding: 10px 20px;
-                font-size: 0.9em;
-                margin-top: 15px;
+                border-radius: 8px;
+                padding: 12px 22px;
+                font-size: 1em;
+                margin-top: 18px;
             }
         }
     </style>
