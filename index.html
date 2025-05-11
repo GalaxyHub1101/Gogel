@@ -6,7 +6,25 @@
     <link rel="icon" type="image/x-icon" href="G.png">
     <title>Gogel</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
-    <style>
+    
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">Gogel</div>
+            <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Gogel</a></li>
+                <li><a href="shortcuts.html">Shortcuts</a></li>
+                <li><a href="chefgel.html">Chefgel</a></li>
+                <li><a href="https://Galaxyhub1101.github.io/Gogel/Quranel/PG-2.html">Quranel</a></li>
+            </ul>
+        </nav><style>
     body {
         font-family: 'Montserrat', sans-serif;
         margin: 0;
@@ -15,24 +33,24 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        min-height: 100vh; /* Ensure body takes at least the full viewport height */
+        min-height: 100vh;
+        font-size: 16px; /* Base font size for larger screens */
     }
 
     nav {
         background-color: #333;
         color: white;
-        padding: 1.5vw; /* Use viewport width for padding */
+        padding: 1em 1.5em; /* Use em for more consistent scaling with font size */
         width: 100%;
-        box-shadow: 0 0.2vw 0.4vw rgba(0, 0, 0, 0.1); /* Scale shadows */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         display: flex;
         justify-content: space-between;
         align-items: center;
         box-sizing: border-box;
-        font-size: 16px; /* Base font size */
     }
 
     .logo {
-        font-size: 2vw; /* Scale logo font size */
+        font-size: 1.5em;
         font-weight: bold;
     }
 
@@ -44,51 +62,50 @@
     }
 
     .nav-links li {
-        margin-left: 2vw; /* Scale link spacing */
+        margin-left: 1.5em;
     }
 
     .nav-links a {
         color: white;
         text-decoration: none;
-        font-size: 1.1vw; /* Scale link font size */
     }
 
     .search-container {
         background-color: #fff;
-        padding: 3vw; /* Scale padding */
-        border-radius: 1vw; /* Scale border radius */
-        box-shadow: 0 0.2vw 0.5vw rgba(0, 0, 0, 0.1); /* Scale shadow */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         text-align: center;
-        width: 90%; /* Use percentage for width */
-        max-width: 600px; /* Keep a maximum width on larger screens */
-        margin-top: 3vw; /* Scale top margin */
+        width: 90%; /* Percentage for responsiveness */
+        max-width: 600px; /* Limit width on large screens */
+        margin-top: 20px;
     }
 
     h1 {
         color: #2c3e50;
-        margin-bottom: 2vw; /* Scale bottom margin */
-        font-size: 2.5vw; /* Scale heading font size */
+        margin-bottom: 20px;
+        font-size: 2em;
     }
 
     #search-input {
-        padding: 1.5vw 2.5vw; /* Scale padding */
-        border: 0.1vw solid #ccc; /* Scale border */
-        border-radius: 2.5vw; /* Scale border radius */
+        padding: 12px 20px;
+        border: 1px solid #ccc;
+        border-radius: 25px;
         width: 100%;
         font-family: 'Montserrat', sans-serif;
-        font-size: 1.2vw; /* Scale font size */
+        font-size: 1em;
         box-sizing: border-box;
-        margin-bottom: 1.8vw; /* Scale bottom margin */
+        margin-bottom: 15px;
     }
 
     button {
-        padding: 1.5vw 3vw; /* Scale padding */
+        padding: 12px 25px;
         background-color: #38ada9; /* DuckDuckGo color */
         color: white;
         border: none;
-        border-radius: 2.5vw; /* Scale border radius */
+        border-radius: 25px;
         font-family: 'Montserrat', sans-serif;
-        font-size: 1.2vw; /* Scale font size */
+        font-size: 1em;
         cursor: pointer;
         transition: background-color 0.3s ease;
     }
@@ -100,21 +117,20 @@
     /* Recent Searches Styles */
     #recent-searches-container {
         background-color: #fff;
-        padding: 2vw; /* Scale padding */
-        border-radius: 1vw; /* Scale border radius */
-        box-shadow: 0 0.2vw 0.4vw rgba(0, 0, 0, 0.1); /* Scale shadow */
-        width: 90%; /* Use percentage for width */
-        max-width: 600px; /* Keep a maximum width */
-        margin-top: 2vw; /* Scale top margin */
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: 90%; /* Percentage for responsiveness */
+        max-width: 600px; /* Limit width on large screens */
+        margin-top: 20px;
         text-align: left;
-        font-size: 16px; /* Base font size */
     }
 
     #recent-searches-container h2 {
         color: #2c3e50;
         margin-top: 0;
-        margin-bottom: 1.2vw; /* Scale bottom margin */
-        font-size: 1.5vw; /* Scale heading font size */
+        margin-bottom: 10px;
+        font-size: 1.2em;
     }
 
     #recent-searches-list {
@@ -124,9 +140,9 @@
     }
 
     #recent-searches-list li {
-        padding: 1vw 0; /* Scale padding */
-        border-bottom: 0.05vw solid #eee; /* Scale border */
-        font-size: 1.1vw; /* Scale font size */
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+        font-size: 0.9em;
     }
 
     #recent-searches-list li:last-child {
@@ -146,11 +162,11 @@
         background-color: #f44336;
         color: white;
         border: none;
-        border-radius: 0.5vw; /* Scale border radius */
-        padding: 0.8vw 1.5vw; /* Scale padding */
-        font-size: 1vw; /* Scale font size */
+        border-radius: 5px;
+        padding: 8px 15px;
+        font-size: 0.8em;
         cursor: pointer;
-        margin-top: 1.2vw; /* Scale top margin */
+        margin-top: 10px;
         transition: background-color 0.3s ease;
     }
 
@@ -162,14 +178,14 @@
     .menu-toggle {
         display: none;
         cursor: pointer;
-        font-size: 2vw; /* Scale icon size */
+        font-size: 1.5em;
     }
 
     .bar {
-        width: 3vw; /* Scale bar width */
-        height: 0.4vw; /* Scale bar height */
+        width: 25px;
+        height: 3px;
         background-color: white;
-        margin: 0.6vw 0; /* Scale margin */
+        margin: 5px 0;
         display: block;
     }
 
@@ -177,110 +193,36 @@
         display: flex;
         flex-direction: column;
         position: absolute;
-        top: 6vw; /* Adjust based on nav height */
+        top: 60px;
         left: 0;
         background-color: #333;
         width: 100%;
         text-align: center;
-        box-shadow: 0 0.4vw 0.8vw rgba(0, 0, 0, 0.2); /* Scale shadow */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         z-index: 10;
     }
 
     .nav-links.mobile-active li {
-        margin: 1.5vw 0; /* Scale margin */
+        margin: 1em 0;
     }
 
     /* Media Query for Mobile */
     @media (max-width: 768px) {
+        body {
+            font-size: 18px; /* Increase base font size for mobile */
+        }
+
         nav {
-            padding: 3vw;
-            font-size: 18px; /* Adjust base font size for mobile */
+            padding: 1.5em 2em;
         }
 
         .logo {
-            font-size: 4vw;
-        }
-
-        .nav-links {
-            display: none;
+            font-size: 2em;
         }
 
         .nav-links a {
-            font-size: 3vw;
+            font-size: 1.2em;
         }
-
-        .menu-toggle {
-            display: block;
-        }
-
-        .search-container {
-            padding: 5vw;
-            border-radius: 2vw;
-            margin-top: 5vw;
-        }
-
-        h1 {
-            font-size: 5vw;
-            margin-bottom: 4vw;
-        }
-
-        #search-input {
-            padding: 3vw 5vw;
-            border-radius: 5vw;
-            font-size: 3.5vw;
-            margin-bottom: 3.5vw;
-        }
-
-        button {
-            padding: 3vw 6vw;
-            border-radius: 5vw;
-            font-size: 3.5vw;
-        }
-
-        #recent-searches-container {
-            padding: 4vw;
-            border-radius: 2vw;
-            margin-top: 4vw;
-            font-size: 18px; /* Adjust base font size for mobile */
-        }
-
-        #recent-searches-container h2 {
-            font-size: 4vw;
-            margin-bottom: 2.5vw;
-        }
-
-        #recent-searches-list li {
-            padding: 2vw 0;
-            font-size: 3vw;
-            border-bottom: 0.1vw solid #eee;
-        }
-
-        .clear-history-button {
-            border-radius: 1vw;
-            padding: 1.5vw 3vw;
-            font-size: 2.5vw;
-            margin-top: 2vw;
-        }
-    }
-</style>
-</head>
-<body>
-
-    <header>
-        <nav>
-            <div class="logo">Gogel</div>
-            <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="index.html">Gogel</a></li>
-                <li><a href="shortcuts.html">Shortcuts</a></li>
-                <li><a href="chefgel.html">Chefgel</a></li>
-                <li><a href="https://Galaxyhub1101.github.io/Gogel/Quranel/PG-2.html">Quranel</a></li>
-            </ul>
-        </nav>
     </header>
 
     <main>
