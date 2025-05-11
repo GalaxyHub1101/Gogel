@@ -4,183 +4,321 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="G.png">
-    <title>My Shortcuts</title>
+    <title>Gogel</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
-            margin: 20px;
+            margin: 0;
             background-color: #f4f4f4;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 1em;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 1.5em;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .search-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+            margin-top: 20px; /* Add some space below the nav */
         }
 
         h1 {
-            text-align: center;
-            color: #333;
+            color: #2c3e50;
             margin-bottom: 20px;
         }
 
-        .shortcuts-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-        }
-
-        .shortcut-item {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 15px;
-            text-align: center;
-        }
-
-        .shortcut-item a {
-            display: block;
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-            font-size: 1em;
-            transition: color 0.3s ease;
-        }
-
-        .shortcut-item a:hover {
-            color: #007bff;
-        }
-
-        .add-shortcut-section {
-            margin-top: 30px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-
-        .add-shortcut-section h2 {
-            color: #333;
+        #search-input {
+            padding: 12px 20px;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            width: 100%;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            box-sizing: border-box;
             margin-bottom: 15px;
         }
 
-        .add-shortcut-form label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        .add-shortcut-form input[type="text"],
-        .add-shortcut-form button {
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 1em;
-        }
-
-        .add-shortcut-form button {
-            background-color: #007bff;
+        button {
+            padding: 12px 25px;
+            background-color: #38ada9; /* DuckDuckGo color */
             color: white;
+            border: none;
+            border-radius: 25px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
 
-        .add-shortcut-form button:hover {
-            background-color: #0056b3;
+        button:hover {
+            background-color: #2b8a84;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 600px) {
-            .shortcuts-container {
-                grid-template-columns: 1fr;
+        /* Mobile Menu Styles (Hidden by default) */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5em;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+            display: block;
+        }
+
+        .nav-links.mobile-active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 60px; /* Adjust based on nav height */
+            left: 0;
+            background-color: #333;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+
+        .nav-links.mobile-active li {
+            margin: 1em 0;
+        }
+
+        /* Recent Searches Styles */
+        #recent-searches-container {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        #recent-searches-container h2 {
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        #recent-searches-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #recent-searches-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        #recent-searches-list li:last-child {
+            border-bottom: none;
+        }
+
+        #recent-searches-list li a {
+            text-decoration: none;
+            color: #337ab7;
+        }
+
+        #recent-searches-list li a:hover {
+            text-decoration: underline;
+        }
+
+        .clear-history-button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 15px;
+            font-size: 0.9em;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .clear-history-button:hover {
+            background-color: #d32f2f;
+        }
+
+        /* Media Query for Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Hide on mobile by default */
+            }
+
+            .menu-toggle {
+                display: block; /* Show hamburger icon */
+            }
+
+            .search-container,
+            #recent-searches-container {
+                width: 95%;
             }
         }
     </style>
 </head>
 <body>
 
-    <h1>My Favorite Shortcuts</h1>
+    <header>
+        <nav>
+            <div class="logo">Gogel</div>
+            <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Gogel</a></li>
+                <li><a href="shortcuts.html">Shortcuts</a></li>
+                <li><a href="chefgel.html">Chefgel</a></li>
+                <li><a href="https://Galaxyhub1101.github.io/Gogel/Quranel/PG-2.html">Quranel</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div class="shortcuts-container" id="shortcuts">
-        </div>
+    <main>
+        <section class="search-container">
+            <h1>Search</h1>
+            <input type="text" id="search-input" placeholder="Enter your search term or website...">
+            <button onclick="performSearch()">Search</button>
+        </section>
 
-    <div class="add-shortcut-section">
-        <h2>Add New Shortcut</h2>
-        <form id="addShortcutForm" class="add-shortcut-form">
-            <label for="websiteName">Website Name:</label>
-            <input type="text" id="websiteName" name="websiteName" required>
+        <section id="recent-searches-container">
+            <h2>Recent Searches</h2>
+            <ul id="recent-searches-list">
+                </ul>
+            <button class="clear-history-button">Clear History</button>
+        </section>
+    </main>
 
-            <label for="websiteURL">Website URL:</label>
-            <input type="text" id="websiteURL" name="websiteURL" required placeholder="https://example.com">
-
-            <button type="submit">Add Shortcut</button>
-        </form>
-    </div>
+    <footer>
+        </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const shortcutsContainer = document.getElementById('shortcuts');
-            const addShortcutForm = document.getElementById('addShortcutForm');
+        const searchInput = document.getElementById('search-input');
+        const recentSearchesContainer = document.getElementById('recent-searches-container');
+        const recentSearchesList = document.getElementById('recent-searches-list');
+        const clearHistoryButton = document.querySelector('.clear-history-button');
 
-            // Load existing shortcuts from local storage or initialize an empty array
-            let shortcuts = JSON.parse(localStorage.getItem('myShortcuts')) || [];
+        let recentSearches = localStorage.getItem('recentSearches');
+        recentSearches = recentSearches ? JSON.parse(recentSearches) : [];
 
-            // Function to render the shortcuts on the page
-            function renderShortcuts() {
-                shortcutsContainer.innerHTML = ''; // Clear existing shortcuts
-                shortcuts.forEach((shortcut, index) => {
-                    const shortcutDiv = document.createElement('div');
-                    shortcutDiv.classList.add('shortcut-item');
-                    shortcutDiv.innerHTML = `
-                        <a href="${shortcut.url}" target="_blank">${shortcut.name}</a>
-                        <button class="delete-button" data-index="${index}" style="margin-top: 5px; padding: 5px 10px; font-size: 0.8em; background-color: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer;">Delete</button>
-                    `;
-                    shortcutsContainer.appendChild(shortcutDiv);
+        function displayRecentSearches() {
+            recentSearchesList.innerHTML = '';
+            if (recentSearches.length > 0) {
+                recentSearches.forEach(search => {
+                    const listItem = document.createElement('li');
+                    const link = document.createElement('a');
+                    link.href = `https://duckduckgo.com/?q=${encodeURIComponent(search)}`;
+                    link.textContent = search;
+                    listItem.appendChild(link);
+                    recentSearchesList.appendChild(listItem);
                 });
-
-                // Add event listeners to the delete buttons
-                const deleteButtons = document.querySelectorAll('.delete-button');
-                deleteButtons.forEach(button => {
-                    button.addEventListener('click', function() {
-                        const indexToDelete = parseInt(this.dataset.index);
-                        deleteShortcut(indexToDelete);
-                    });
-                });
+                recentSearchesContainer.style.display = 'block';
+            } else {
+                recentSearchesContainer.style.display = 'none';
             }
+        }
 
-            // Function to add a new shortcut
-            function addShortcut(name, url) {
-                shortcuts.push({ name: name, url: url });
-                localStorage.setItem('myShortcuts', JSON.stringify(shortcuts));
-                renderShortcuts();
-            }
-
-            // Function to delete a shortcut
-            function deleteShortcut(index) {
-                shortcuts.splice(index, 1);
-                localStorage.setItem('myShortcuts', JSON.stringify(shortcuts));
-                renderShortcuts();
-            }
-
-            // Event listener for the add shortcut form submission
-            addShortcutForm.addEventListener('submit', function(event) {
-                event.preventDefault();
-                const websiteNameInput = document.getElementById('websiteName');
-                const websiteURLInput = document.getElementById('websiteURL');
-                const name = websiteNameInput.value.trim();
-                const url = websiteURLInput.value.trim();
-
-                if (name && url) {
-                    addShortcut(name, url);
-                    websiteNameInput.value = '';
-                    websiteURLInput.value = '';
-                } else {
-                    alert('Please enter both the website name and URL.');
+        function updateRecentSearches(searchTerm) {
+            if (!recentSearches.includes(searchTerm)) {
+                recentSearches.unshift(searchTerm);
+                if (recentSearches.length > 5) { // Limit to 5 recent searches
+                    recentSearches.pop();
                 }
-            });
+                localStorage.setItem('recentSearches', JSON.stringify(recentSearches));
+                displayRecentSearches();
+            }
+        }
 
-            // Initial rendering of shortcuts when the page loads
-            renderShortcuts();
+        function performSearch() {
+            const searchTerm = searchInput.value.trim();
+
+            if (searchTerm) {
+                updateRecentSearches(searchTerm);
+                if (searchTerm.endsWith('.com') || searchTerm.endsWith('.co.uk')) {
+                    let url = searchTerm;
+                    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                        url = 'http://' + url;
+                    }
+                    window.location.href = url;
+                } else {
+                    const duckduckgoUrl = 'https://duckduckgo.com/?q=' + encodeURIComponent(searchTerm);
+                    window.location.href = duckduckgoUrl;
+                }
+            } else {
+                alert('Please enter a search term or website address.');
+            }
+        }
+
+        searchInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                performSearch();
+            }
         });
+
+        clearHistoryButton.addEventListener('click', () => {
+            recentSearches = [];
+            localStorage.removeItem('recentSearches');
+            displayRecentSearches();
+        });
+
+        // JavaScript for Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('mobile-active');
+            const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+            menuToggle.setAttribute('aria-expanded', !expanded);
+        });
+
+        // Initial display of recent searches
+        displayRecentSearches();
     </script>
 
 </body>
