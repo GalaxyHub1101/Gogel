@@ -1,3 +1,5 @@
 .img{
   float: left;
+  min-width: 40%;
+  min-height: 40%
 }
