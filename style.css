@@ -1,5 +1,6 @@
 .img{
   float: left;
-  min-width: 40%;
-  min-height: 40%
+  width: 385.2px;
+  height: 245.2px;
+  border-radius: 8px;
 }
