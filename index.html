@@ -68,6 +68,16 @@
         .search-container {
             margin-top: 50px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .search-form {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
         }
 
         #search-input {
@@ -75,7 +85,7 @@
             border: 1px solid #ccc;
             border-radius: 25px;
             font-size: 1em;
-            min-width: 300px;
+            flex-grow: 1;
             box-sizing: border-box;
         }
 
@@ -93,6 +103,50 @@
 
         #search-button:hover {
             background-color: #0056b3;
+        }
+
+        #search-history {
+            margin-top: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            width: 100%;
+            max-width: 600px;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        #search-history h2 {
+            color: #333;
+            margin-top: 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        #search-history ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #search-history li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        #search-history li:last-child {
+            border-bottom: none;
+        }
+
+        #search-history li a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        #search-history li a:hover {
+            text-decoration: underline;
         }
 
         .image {
@@ -138,6 +192,10 @@
                 padding: 0 20px;
             }
 
+            .search-form {
+                flex-direction: column;
+            }
+
             #search-input {
                 min-width: auto;
                 width: 100%;
@@ -147,6 +205,10 @@
             #search-button {
                 margin-left: 0;
                 width: 100%;
+            }
+
+            #search-history {
+                margin-top: 15px;
             }
 
             .image {
@@ -177,11 +239,61 @@
             <input type="text" id="search-input" name="q" placeholder="Search with DuckDuckGo">
             <button type="submit" id="search-button">Search</button>
         </form>
+
+        <div id="search-history">
+            <h2>Search History</h2>
+            <ul id="history-list">
+                </ul>
+        </div>
     </div>
 
     <script>
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
+        const searchForm = document.querySelector('.search-form');
+        const searchInput = document.getElementById('search-input');
+        const historyList = document.getElementById('history-list');
+
+        let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+        const MAX_HISTORY_ITEMS = 5; // Limit the number of stored history items
+
+        function displaySearchHistory() {
+            historyList.innerHTML = '';
+            searchHistory.slice().reverse().forEach(term => { // Reverse to show latest first
+                const listItem = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = `https://duckduckgo.com/?q=${encodeURIComponent(term)}`;
+                link.textContent = term;
+                listItem.appendChild(link);
+                historyList.appendChild(listItem);
+            });
+        }
+
+        function addSearchToHistory(searchTerm) {
+            if (searchHistory.includes(searchTerm)) {
+                // If the term exists, remove it to add it at the beginning (for recency)
+                searchHistory = searchHistory.filter(item => item !== searchTerm);
+            }
+            searchHistory.unshift(searchTerm); // Add to the beginning
+            if (searchHistory.length > MAX_HISTORY_ITEMS) {
+                searchHistory.pop(); // Remove the oldest item
+            }
+            localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+            displaySearchHistory();
+        }
+
+        searchForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const searchTerm = searchInput.value.trim();
+            if (searchTerm) {
+                addSearchToHistory(searchTerm);
+                window.location.href = `https://duckduckgo.com/?q=${encodeURIComponent(searchTerm)}`;
+                searchInput.value = ''; // Clear the input after search
+            }
+        });
+
+        // Display initial search history on page load
+        displaySearchHistory();
 
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
